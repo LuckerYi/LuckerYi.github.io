@@ -1,0 +1,131 @@
+<div style="text-align: center;">
+<h1><strong>ProsodySpeech: Towards Advanced Prosody Model for Neural Text-to-Speech</strong></h1>
+</div>
+
+<div style="text-align: center;">
+  <h3>Microsoft, China</h3>
+</div>
+
+<div style="text-align: center;">
+  <h4>{yuanhyi,helei,peterpan,xwang,yujia.xiao}@microsoft.com</h4>
+</div>
+
+<div style="text-align: left;">
+  <h4>This paper proposes ProsodySpeech, a novel prosody model to enhance encoder-decoder neural Text-to-Speech (TTS), to generate high expressive and personalized speech even with very limited training data. First, we use a prosody extractor built from a large speech corpus with various speakers to generate a set of prosody exemplars from multiple reference speeches, in which Mutual Information based Style Content separation (MIST) is adopted to alleviate "content leakage" problem. Second, we use a Prosody Distributor to make a soft selection of appropriate prosody exemplars in phone-level with the help of an attention mechanism. The resulting prosody feature is then aggregated into the output of text encoder, together with additional phone-level pitch feature to enrich the prosody. We believe the designed prosody features carry a good combination of information with both acoustic style and content expression regarding different context variations. We apply this method into two tasks: highly expressive multi style/emotion TTS and few-shot personalized TTS. The experiments show the proposed model outperforms FastSpeech baseline with significant improvements in terms of similarity and style expression.</h4>
+</div>
+
+<div style="text-align: center;">
+<img src="./png/model strcuture.png"  alt="model structure" width="800" height="500" />
+</div>
+
+<div style="text-align: left;">
+  <h3><strong>Highly expressive multi style/emotion TTS task(Chinese):</strong></h3>
+</div>
+
+<div style="text-align: left;">
+  <table width="600" border="1" align="center">
+  <tbody>
+    <tr>
+      <th scope="col">Style</th>
+      <th scope="col">Reference</th>
+      <th scope="col">Baseline</th>
+      <th scope="col">ProsodySpeech</th>
+    </tr>
+    <tr>
+      <th scope="row">Shy</th>
+      <td><audio src="./wav/shy/reference/1.wav" controls=""></audio><br><audio src="./wav/shy/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/shy/baseline/1.wav" controls=""></audio><br><audio src="./wav/shy/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/shy/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/shy/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Gentle</th>
+      <td><audio src="./wav/gentle/reference/1.wav" controls=""></audio><br><audio src="./wav/gentle/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/gentle/baseline/1.wav" controls=""></audio><br><audio src="./wav/gentle/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/gentle/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/gentle/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Calm</th>
+      <td><audio src="./wav/calm/reference/1.wav" controls=""></audio><br><audio src="./wav/calm/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/calm/baseline/1.wav" controls=""></audio><br><audio src="./wav/calm/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/calm/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/calm/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Nervous</th>
+      <td><audio src="./wav/nervous/reference/1.wav" controls=""></audio><br><audio src="./wav/nervous/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/nervous/baseline/1.wav" controls=""></audio><br><audio src="./wav/nervous/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/nervous/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/nervous/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Happy</th>
+      <td><audio src="./wav/happy/reference/1.wav" controls=""></audio><br><audio src="./wav/happy/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/happy/baseline/1.wav" controls=""></audio><br><audio src="./wav/happy/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/happy/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/happy/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Complain</th>
+      <td><audio src="./wav/complain/reference/1.wav" controls=""></audio><br><audio src="./wav/complain/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/complain/baseline/1.wav" controls=""></audio><br><audio src="./wav/complain/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/complain/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/complain/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Strict</th>
+      <td><audio src="./wav/strict/reference/1.wav" controls=""></audio><br><audio src="./wav/strict/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/strict/baseline/1.wav" controls=""></audio><br><audio src="./wav/strict/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/strict/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/strict/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Angry</th>
+      <td><audio src="./wav/angry/reference/1.wav" controls=""></audio><br><audio src="./wav/angry/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/angry/baseline/1.wav" controls=""></audio><br><audio src="./wav/angry/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/angry/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/angry/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Sad</th>
+      <td><audio src="./wav/sad/reference/1.wav" controls=""></audio><br><audio src="./wav/sad/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/sad/baseline/1.wav" controls=""></audio><br><audio src="./wav/sad/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/sad/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/sad/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="text-align: left;">
+  <h3><strong>Few-shot personalized TTS task(English):</strong></h3>
+</div>
+  
+<div style="text-align: left;">
+  <table width="600" border="1" align="center">
+  <tbody>
+    <tr>
+      <th scope="col">Voice</th>
+      <th scope="col">Reference</th>
+      <th scope="col">Baseline</th>
+      <th scope="col">ProsodySpeech</th>
+    </tr>
+    <tr>
+      <th scope="row">Female1</th>
+      <td><audio src="./wav/female1/reference/1.wav" controls=""></audio><br><audio src="./wav/female1/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/female1/baseline/1.wav" controls=""></audio><br><audio src="./wav/female1/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/female1/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/female1/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Female2</th>
+      <td><audio src="./wav/female2/reference/1.wav" controls=""></audio><br><audio src="./wav/female2/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/female2/baseline/1.wav" controls=""></audio><br><audio src="./wav/female2/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/female2/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/female2/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Male1</th>
+      <td><audio src="./wav/male1/reference/1.wav" controls=""></audio><br><audio src="./wav/male1/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/male1/baseline/1.wav" controls=""></audio><br><audio src="./wav/male1/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/male1/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/male1/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+    <tr>
+      <th scope="row">Male2</th>
+      <td><audio src="./wav/male2/reference/1.wav" controls=""></audio><br><audio src="./wav/male2/reference/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/male2/baseline/1.wav" controls=""></audio><br><audio src="./wav/male2/baseline/2.wav" controls=""></audio></td>
+      <td><audio src="./wav/male2/prosodyspeech/1.wav" controls=""></audio><br><audio src="./wav/male2/prosodyspeech/2.wav" controls=""></audio></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
