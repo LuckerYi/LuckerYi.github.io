@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-<h1><strong>SoftSpeech: Towards Advanced Prosody Model for Neural Text-to-Speech</strong></h1>
+<h1><strong>SoftSpeech: Unsupervised Duration Model In FastSpeech 2</strong></h1>
 </div>
 
 <div style="text-align: center;">
@@ -7,19 +7,19 @@
 </div>
 
 <div style="text-align: center;">
-  <h4>{yuanhyi,helei,peterpan,xwang,yujia.xiao}@microsoft.com</h4>
+  <h4>{yuanhyi,helei,peterpan,xwang,yuchao.zhang}@microsoft.com</h4>
 </div>
 
 <div style="text-align: left;">
-  <h4>This paper proposes ProsodySpeech, a novel prosody model to enhance encoder-decoder neural Text-to-Speech (TTS), to generate high expressive and personalized speech even with very limited training data. First, we use a prosody extractor built from a large speech corpus with various speakers to generate a set of prosody exemplars from multiple reference speeches, in which Mutual Information based Style Content separation (MIST) is adopted to alleviate "content leakage" problem. Second, we use a Prosody Distributor to make a soft selection of appropriate prosody exemplars in phone-level with the help of an attention mechanism. The resulting prosody feature is then aggregated into the output of text encoder, together with additional phone-level pitch feature to enrich the prosody. We believe the designed prosody features carry a good combination of information with both acoustic style and content expression regarding different context variations. We apply this method into two tasks: highly expressive multi style/emotion TTS and few-shot personalized TTS. The experiments show the proposed model outperforms FastSpeech baseline with significant improvements in terms of similarity and style expression.</h4>
+  <h4>In this paper, we propose a neural Text-To-Speech (TTS) system SoftSpeech, which employs a novel soft length regulated duration attention based decoder. It learns the encoder output mapping to decoder output simultaneously from an unsupervised duration model (Soft-LengthRegulator) without the requirement of external duration information. The Soft-LengthRegulator is consist of a Feed-Forward Transformer (FFT) block with Conditional Layer Normalization (CLN), following a learned upsampling layer with multi-head attention and guided multi-head attention constraint, and it is integrated in each decoder layer and achieves accelerated training convergence and better naturalness within FastSpeech 2 framework. Soft Dynamic Time Warping (Soft-DTW) is adopted to align the mismatch spectrogram loss. Moreover, a Fine-Grained style Variational AutoEncoder (VAE) is designed to further improve the naturalness of synthesized speech. The experiments show SoftSpeech outperforms FastSpeech 2 in subjective tests, and can be successfully applied to minority languages with low resources.</h4>
 </div>
 
 <div style="text-align: center;">
-<img src="./png/model strcuture.png"  alt="model structure" width="1200" height="500" />
+<img src="./png/model strcuture.png"  alt="model structure" width="800" height="500" />
 </div>
 
 <div style="text-align: left;">
-  <h3><strong>Highly expressive multi style/emotion TTS task(Chinese):</strong></h3>
+  <h3><strong>Multi-lingual Multi-speaker TTS task:</strong></h3>
 </div>
 
 <div style="text-align: left;">
@@ -90,7 +90,7 @@
 </div>
 
 <div style="text-align: left;">
-  <h3><strong>Few-shot personalized TTS task(English):</strong></h3>
+  <h3><strong>Minority low resource TTS task:</strong></h3>
 </div>
   
 <div style="text-align: left;">
